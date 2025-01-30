@@ -16,5 +16,8 @@ def index():
     call_service()
     return template('index.tpl', data="Request completed!", title=title)
 
+# Expose the Bottle app as 'serverApp' for WSGI server to recognize
+serverApp = bottle.default_app()
+
 if __name__ == '__main__':
     run(host='0.0.0.0', port=8000, debug=False, reloader=True)
